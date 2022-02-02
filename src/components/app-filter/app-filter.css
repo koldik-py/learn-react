@@ -1,0 +1,17 @@
+.btn {
+	margin-top: 20px;
+}
+.btn__click {
+	margin-right: 10px;
+	font-size: 14px;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 3px;
+	border: 1px solid #eee;
+	background-color: #3d5a80;
+	color: #eeee;
+}
+.btn__click--active {
+	color: #000;
+	background: #eee;
+}
