@@ -10,7 +10,8 @@
 	margin-top:20px;
 }
 .formAdd__form input {
-	width: 350px;
+	
+	max-width: 350px;
 	margin-right: 20px;
 }
 .formAdd h3 {
@@ -35,6 +36,7 @@
 	color: #000;
 }
 .formAdd__btn {
+
 	padding: 10px;
 	border-radius: 4px;
 	background: none;

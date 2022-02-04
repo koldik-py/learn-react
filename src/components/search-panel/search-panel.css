@@ -11,8 +11,15 @@
 }
 .search-input {
 	width: 100%;
-	padding: 4px;
-	font-size: 14px;
-	outline: none;
+	padding: 10px;
+	border-radius: 4px;
+	background: #eee;
 	border: none;
+	outline:none;
+	font-size: 16px;
+	color: #000;
+}
+.search-input:focus {
+    background: #eee;
+    color: #000;
 }

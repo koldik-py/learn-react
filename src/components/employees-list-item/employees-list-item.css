@@ -7,16 +7,20 @@
 	margin-bottom: -1px;
     border:1px solid rgba(0,0,0,.125);
 }
+.employees__item.increase .employees__name, 
+.employees__item.increase .employees__sum{
+	color: #e09f3e;
+}
 .employees__name {
-	grid-column-start: 1;
-	grid-column-end: 10;
+	grid-column: 1/4;
 	font-size: 18px;
 	color: #000;
 	margin:0;
+	cursor: pointer;
 }
 .employees__sum {
-	grid-column-start: 14;
-	grid-column-end: 16;
+	grid-column: 14/16;
+
 	padding: 10px 0;
 	border-radius: 4px;
 	background: none;
@@ -28,13 +32,13 @@
 }
 .employees__sum:hover,:focus {
     background: #274061;
-    color: #000;
+    color: #eee;
 }
 
 .employees__btn1 {
-	grid-column-start: 17;
-	grid-column-end: 18;
-	color: #986820;
+	grid-column: 17/18;
+
+	color: #C7841F;
 	background: #eeee;
 	outline:none;
 	border: none;
@@ -46,8 +50,8 @@
 	cursor: pointer;
 }
 .employees__btn2 {
-	grid-column-start: 18;
-	grid-column-end: 19;
+	grid-column: 18/19;
+
 	padding: 5px 0;
 	background: #eeee;
 	outline:none;
@@ -61,17 +65,21 @@
 
 }
 .employees__btn3 {
-	display: none;
-	grid-column-start: 19;
-	grid-column-end: 20;
+	opacity: 0;
+	grid-column: 19/20;
+
 	padding: 5px 0;
 	font-size: 18px;
-	background: #274061;
 	outline:none;
 	border: none;
+	background: none;
+	transition: 0.5s;
 	border-radius: 4px;
 	text-align: center;
 	margin:0 7px 0 7px;
 	cursor: pointer;
-	/*color: #eeee;*/
+	color: #F3C316;
+}
+.employees__btn3--active {
+		opacity: 1;
 }
