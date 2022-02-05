@@ -15,7 +15,7 @@ class EmployeesAddForm extends Component {
 
 	onClickBtn = (e) => {
 		e.preventDefault();
-		console.log(this.state)
+		this.props.create(this.state)
 		this.setState( {name: '', salary: ''} )
 	}
 
@@ -32,16 +32,16 @@ class EmployeesAddForm extends Component {
 						name="name"
 						value={name}
 						onChange={this.onValueChange}/>
-					<input type="text" 
+					<input type="number" 
 						className="formAdd__sum"
 						placeholder="З\П в $?"
 						name="salary"
 						value={salary}
 						onChange={this.onValueChange}/>
 					<button  type="submit"
-							className="formAdd__btn"
-							onClick={this.onClickBtn}
-							>Добавить</button>
+						className="formAdd__btn"
+						onClick={this.onClickBtn}
+						>Добавить</button>
 				</form>
 			</div>	
 		)
