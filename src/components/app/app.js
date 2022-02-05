@@ -19,11 +19,16 @@ class App extends Component {
 	
 	getData(){
 		const data = [
-				{name: "Anton I.",salary: 800, id:1},
-				{name: "Jina I.",salary: 600, id:2},
-				{name: "Cally I.",salary: 1200, id:3}]
+				{name: "Anton I.", salary: 800, star: false, increase: false , id:1},
+				{name: "Anton1 I.", salary: 800, star: false, increase: false , id:2},
+				{name: "Anton2 I.", salary: 800, star: false, increase: false , id:3},]
 		return data
 	}
+	onToggleProps = (id, prop) => {
+		this.setState( ({data}) => ({
+			data: data.map( item => item.id === id ? {...item, [prop]: !item[prop]} : {...item} )
+		}) )
+	} 
 
 	onDelete = (id) => {
 		this.setState( ({data}) => ({ data: data.filter(elem => elem.id != id) }) )
@@ -31,17 +36,34 @@ class App extends Component {
 	onCreate = (onData) => {
 		//				name, salary
 		const newUser = {...onData,
+						star: false, 
+						increase: false,
 						id: this.state.data.length + 1};
-		this.setState( ({data}) => ({data: [...data, newUser]}) )
-		// this.setState( ({data}) => ({data: data.concat(newUser)}) )
+		
+		if (newUser.name.length >= 2 && newUser.salary > 0) {
+			this.setState( ({data}) => ({data: [...data, newUser]}) )
+		}
+	}
+
+	valueEmpl = (name) => {
+		if (name === 'value') return this.state.data.length
+		if (name === 'onIncrease') return this.state.data.filter(elem => elem.increase === true).length
+	}
+
+	onSearch = (e) => {
+		this.setState( ({data}) => ({ data: data.filter(elem => elem.name.startsWith(e.target.value)) }) )
 	}
 
 	render() {
 		return (
 		<div className="app">
-		<AppInfo sum="564"/>
-		<SearchPanel/>
-		<EmployeesList data={this.state.data} ondelite={this.onDelete}/>
+		<AppInfo onIncrease={this.valueEmpl('onIncrease')}
+				value={this.valueEmpl('value')}/>
+		<SearchPanel onSearch={this.onSearch}/>
+		<EmployeesList data={this.state.data} 
+					ondelite={this.onDelete}
+					onToggleProps={this.onToggleProps}
+					/>
 		<EmployeesAddForm create={this.onCreate}/>
 		</div>
 	)
